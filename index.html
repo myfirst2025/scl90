@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"> <!-- 新增最大缩放限制，避免手机放大后变形 -->
+    <title>SCL-90症状自评量表测试 - 专业心理健康评估</title>
+    <meta name="description" content="免费SCL-90症状自评量表测试，专业心理健康评估工具，帮助您了解自己的心理状态">
+    <!-- 外部资源：Bootstrap Icons图标库（CDN） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- 引入外部CSS文件（同级文件夹） -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><<i class="bi bi-clipboard-heart"></</i> SCL-90症状自评量表</h1> <!-- 简化标题，避免移动端换行过多 -->
+            <p class="header-desc">根据最近一周实际感觉，选择最符合您情况的选项</p> <!-- 新增简短描述，替代原长文本 -->
+        </header>
+
+        <div class="instructions">
+            <h2><<i class="bi bi-info-circle"></</i> 评分说明</h2> <!-- 简化标题 -->
+            <p class="inst-short">共90题，5级评分（1=没有，2=很轻，3=中等，4=偏重，5=严重）</p> <!-- 新增简短引导 -->
+            <ul class="inst-list">
+                <li><strong>1分</strong>：自觉无该项症状</li>
+                <li><strong>2分</strong>：有症状，影响轻微</li>
+                <li><strong>3分</strong>：症状轻到中度</li>
+                <li><strong>4分</strong>：症状中到严重</li>
+                <li><strong>5分</strong>：症状十分严重</li>
+            </ul>
+            <p class="inst-tip"><<i class="bi bi-exclamation-triangle"></</i> 本测试仅供参考，不替代专业医疗诊断</p>
+        </div>
+
+        <div class="progress-info">
+            <span><<i class="bi bi-check-circle"></</i> 进度: <span id="progress">0</span>/90</span>
+            <span><<i class="bi bi-clock"></</i> 剩余: <span id="remaining">90</span>题</span>
+        </div>
+
+        <div class="completion-message" id="completion-message">
+            <<i class="bi bi-check-lg"></</i> 已完成所有题目，点击提交
+        </div>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>计算结果中...</p> <!-- 简化加载文本 -->
+        </div>
+
+        <form id="scl90-test">
+            <div class="question-container" id="questions">
+                <!-- 问题将通过JavaScript动态生成 -->
+            </div>
+
+            <button type="submit" class="submit-btn"><<i class="bi bi-send"></</i> 提交测试</button>
+        </form>
+
+        <div id="results">
+            <h2 class="results-header"><<i class="bi bi-graph-up"></</i> 测试结果</h2> <!-- 简化标题 -->
+
+            <div class="score-summary">
+                <div class="score-card">
+                    <div class="score-label">总分</div>
+                    <div class="score-value" id="total-score">0</div>
+                    <div class="score-max">满分450</div> <!-- 简化文本 -->
+                </div>
+
+                <div class="score-card">
+                    <div class="score-label">总症状指数</div>
+                    <div class="score-value" id="total-index">0</div>
+                    <div class="score-max">总均分</div>
+                </div>
+
+                <div class="score-card">
+                    <div class="score-label">阳性项目数</div>
+                    <div class="score-value" id="positive-items">0</div>
+                    <div class="score-max">≥2分题数</div> <!-- 简化文本 -->
+                </div>
+
+                <div class="score-card">
+                    <div class="score-label">阳性症状均分</div>
+                    <div class="score-value" id="positive-score">0</div>
+                    <div class="score-max">阳性题均分</div> <!-- 简化文本 -->
+                </div>
+            </div>
+
+            <h3 class="factor-title">各因子分详情</h3> <!-- 新增类名，方便移动端样式控制 -->
+            <div class="table-wrapper"> <!-- 新增表格容器，优化移动端滚动 -->
+                <table class="results-table">
+                    <thead>
+                        <tr>
+                            <<th>因子</</th> <!-- 简化表头文本 -->
+                            <<th>得分</</th>
+                            <<th>正常范围</</th>
+                            <<th>状态</</th>
+                            <<th>说明</</th> <!-- 简化表头文本 -->
+                        </tr>
+                    </thead>
+                    <tbody id="factor-results">
+                        <!-- 因子结果将通过JavaScript动态生成 -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="factor-details" id="factor-details">
+                <!-- 因子详细解释将通过JavaScript动态生成 -->
+            </div>
+
+            <button class="print-btn" onclick="window.print()"><<i class="bi bi-printer"></</i> 打印结果</button>
+
+            <div class="interpretation">
+                <h3>结果建议</h3> <!-- 简化标题 -->
+                <p>因子分＞1.5分可能存在症状，＞2分症状中等，＞3分症状严重。建议得分高的维度关注心理健康，必要时咨询专业心理医生。</p> <!-- 简化建议文本，避免过长 -->
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2023 SCL-90测试 | 仅供参考，不做临床诊断</p> <!-- 简化 footer 文本 -->
+        </footer>
+    </div>
+    <!-- 引入外部JS文件（同级文件夹） -->
+    <script src="script.js"></script>
+</body>
+</html>

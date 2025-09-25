@@ -1,0 +1,473 @@
+/* 全局样式重置 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Microsoft YaHei', sans-serif;
+    line-height: 1.5; /* 减小行高，避免移动端文本过于分散 */
+    color: #333;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 10px; /* 减小页面内边距，适配手机屏幕 */
+    min-height: 100vh;
+}
+
+/* 容器核心适配：手机端无多余留白，避免细长 */
+.container {
+    max-width: 1200px;
+    width: 100%; /* 手机端占满屏幕 */
+    margin: 0 auto;
+    background: white;
+    padding: 20px 15px; /* 上下20px，左右15px，适配手机窄屏 */
+    border-radius: 12px; /* 适当减小圆角，更紧凑 */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* 减弱阴影，更轻盈 */
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px; /* 减小底部间距 */
+    padding-bottom: 15px; /* 减小底部内边距 */
+    border-bottom: 1px solid #eaeaea;
+}
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 8px; /* 减小标题下间距 */
+    font-size: 1.6rem; /* 手机端标题缩小，避免换行 */
+}
+
+.header-desc {
+    color: #666;
+    font-size: 0.9rem; /* 简短描述用小字体 */
+}
+
+/* 说明区优化：紧凑且清晰 */
+.instructions {
+    background-color: #e8f4fc;
+    padding: 15px; /* 减小内边距 */
+    border-radius: 8px; /* 减小圆角 */
+    margin-bottom: 15px; /* 减小底部间距 */
+    border-left: 4px solid #3498db;
+}
+
+.instructions h2 {
+    color: #2980b9;
+    margin-bottom: 10px; /* 减小标题下间距 */
+    font-size: 1.2rem; /* 缩小标题字体 */
+}
+
+.inst-short {
+    color: #444;
+    font-size: 0.9rem;
+    margin-bottom: 8px; /* 减小间距 */
+}
+
+.inst-list {
+    padding-left: 20px;
+    margin: 8px 0; /* 减小上下间距 */
+}
+
+.inst-list li {
+    margin-bottom: 5px; /* 减小列表项间距 */
+    font-size: 0.85rem; /* 缩小列表字体 */
+}
+
+.inst-tip {
+    color: #666;
+    font-size: 0.85rem;
+    margin-top: 10px;
+}
+
+/* 进度条区域：紧凑布局 */
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px; /* 减小底部间距 */
+    padding: 10px; /* 减小内边距 */
+    background: #e8f4fc;
+    border-radius: 6px; /* 减小圆角 */
+    font-weight: 500;
+    font-size: 0.85rem; /* 缩小字体 */
+}
+
+/* 完成提示：紧凑显示 */
+.completion-message {
+    text-align: center;
+    margin: 15px 0; /* 减小上下间距 */
+    padding: 10px; /* 减小内边距 */
+    background: #e8f5e9;
+    border-radius: 6px;
+    color: #2e7d32;
+    font-weight: 500;
+    font-size: 0.9rem; /* 缩小字体 */
+    display: none;
+}
+
+/* 加载动画：适配手机尺寸 */
+.loading {
+    display: none;
+    text-align: center;
+    padding: 15px; /* 减小内边距 */
+}
+
+.spinner {
+    border: 3px solid #f3f3f3; /* 减小 spinner 边框 */
+    border-top: 3px solid #3498db;
+    border-radius: 50%;
+    width: 30px; /* 缩小 spinner 尺寸 */
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 10px; /* 减小底部间距 */
+}
+
+.loading p {
+    font-size: 0.9rem; /* 缩小加载文本 */
+    color: #666;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 题目容器：减小间距，避免细长 */
+.question-container {
+    margin-bottom: 15px; /* 减小底部间距 */
+}
+
+.question {
+    background-color: #f8f9fa;
+    padding: 12px; /* 大幅减小题目内边距，避免过于臃肿 */
+    border-radius: 8px; /* 减小圆角 */
+    margin-bottom: 10px; /* 减小题目间间距，更紧凑 */
+    border-left: 3px solid #3498db; /* 减小左边框宽度 */
+    transition: transform 0.2s;
+}
+
+.question:hover {
+    transform: translateY(-1px); /* 减小悬浮偏移，更克制 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08); /* 减弱阴影 */
+}
+
+.question-number {
+    font-weight: 500;
+    margin-bottom: 8px; /* 减小间距 */
+    color: #2c3e50;
+    font-size: 0.95rem; /* 缩小题目编号字体 */
+}
+
+/* 选项布局：移动端垂直排列更紧凑 */
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px; /* 减小选项间距 */
+    margin-top: 8px; /* 减小顶部间距 */
+}
+
+.option {
+    flex: 1;
+    min-width: 80px; /* 减小选项最小宽度，适配窄屏 */
+}
+
+.option label {
+    display: block;
+    padding: 8px 10px; /* 减小选项内边距，更紧凑 */
+    background: #eef2f7;
+    border-radius: 5px; /* 减小圆角 */
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+    font-size: 0.85rem; /* 缩小选项字体 */
+}
+
+.option input[type="radio"]:checked + label {
+    background: #3498db;
+    color: white;
+    box-shadow: 0 2px 5px rgba(52, 152, 219, 0.3); /* 减弱阴影 */
+}
+
+/* 提交按钮：适配手机宽度，更紧凑 */
+.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 12px; /* 减小按钮内边距 */
+    background: #2c3e50;
+    color: white;
+    border: none;
+    border-radius: 6px; /* 减小圆角 */
+    font-size: 1rem; /* 适配手机字体 */
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 15px; /* 减小顶部间距 */
+    font-weight: 500;
+    letter-spacing: 0.5px; /* 减小字间距 */
+}
+
+.submit-btn:hover {
+    background: #3498db;
+    box-shadow: 0 3px 8px rgba(52, 152, 219, 0.3); /* 减弱阴影 */
+}
+
+/* 结果区域：紧凑布局，避免细长 */
+#results {
+    display: none;
+    margin-top: 20px; /* 减小顶部间距 */
+    padding: 15px; /* 减小内边距 */
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #eaeaea;
+}
+
+.results-header {
+    text-align: center;
+    margin-bottom: 15px; /* 减小底部间距 */
+    color: #2c3e50;
+    font-size: 1.3rem; /* 缩小结果标题字体 */
+}
+
+/* 得分卡片：移动端更紧凑 */
+.score-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* 减小卡片最小宽度，适配窄屏 */
+    gap: 10px; /* 减小卡片间距 */
+    margin-bottom: 15px; /* 减小底部间距 */
+}
+
+.score-card {
+    background: white;
+    padding: 12px; /* 减小卡片内边距 */
+    border-radius: 6px; /* 减小圆角 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08); /* 减弱阴影 */
+    text-align: center;
+}
+
+.score-value {
+    font-size: 1.8rem; /* 缩小得分字体，避免溢出 */
+    font-weight: bold;
+    color: #2c3e50;
+    margin: 5px 0; /* 减小上下间距 */
+}
+
+.score-label {
+    color: #7f8c8d;
+    font-size: 0.85rem; /* 缩小标签字体 */
+}
+
+.score-max {
+    color: #999;
+    font-size: 0.75rem; /* 缩小满分提示字体 */
+}
+
+/* 因子标题：适配移动端 */
+.factor-title {
+    color: #2c3e50;
+    font-size: 1.1rem; /* 缩小标题字体 */
+    margin-bottom: 10px; /* 减小底部间距 */
+}
+
+/* 表格容器：解决移动端横向滚动问题 */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto; /* 横向滚动，避免表格变形 */
+    margin-bottom: 15px; /* 减小底部间距 */
+}
+
+/* 结果表格：适配移动端 */
+.results-table {
+    width: 100%;
+    min-width: 500px; /* 保证表格最小宽度，方便滚动查看 */
+    border-collapse: collapse;
+    margin: 0; /* 清除原margin，由table-wrapper控制 */
+    font-size: 0.8rem; /* 大幅缩小表格字体，避免拥挤 */
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+.results-table th,
+.results-table td {
+    padding: 8px 10px; /* 减小表格内边距 */
+    text-align: center;
+}
+
+.results-table thead tr {
+    background-color: #2c3e50;
+    color: white;
+    text-align: left;
+    font-weight: 500;
+}
+
+/* 因子详情：紧凑显示 */
+.factor-details {
+    margin-top: 15px; /* 减小顶部间距 */
+}
+
+.factor-explanation {
+    background: white;
+    padding: 12px; /* 减小内边距 */
+    border-radius: 6px; /* 减小圆角 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08); /* 减弱阴影 */
+    margin-bottom: 10px; /* 减小详情间间距 */
+}
+
+.factor-explanation h3 {
+    color: #2c3e50;
+    margin-bottom: 8px; /* 减小标题下间距 */
+    padding-bottom: 5px; /* 减小下划线间距 */
+    border-bottom: 2px solid #3498db;
+    font-size: 1rem; /* 缩小详情标题字体 */
+}
+
+.factor-explanation p {
+    font-size: 0.85rem; /* 缩小详情文本字体 */
+    margin-bottom: 5px; /* 减小文本间间距 */
+}
+
+/* 结果建议：紧凑布局 */
+.interpretation {
+    background: #fff8e1;
+    padding: 12px; /* 减小内边距 */
+    border-radius: 6px; /* 减小圆角 */
+    margin-top: 15px; /* 减小顶部间距 */
+    border-left: 4px solid #ffc107;
+}
+
+.interpretation h3 {
+    color: #2c3e50;
+    margin-bottom: 8px; /* 减小标题下间距 */
+    font-size: 1.1rem; /* 缩小标题字体 */
+}
+
+.interpretation p {
+    font-size: 0.85rem; /* 缩小建议文本字体 */
+    line-height: 1.5;
+}
+
+/* 打印按钮：适配移动端 */
+.print-btn {
+    display: inline-block;
+    padding: 8px 15px; /* 减小按钮内边距 */
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px; /* 减小圆角 */
+    cursor: pointer;
+    margin-top: 15px; /* 减小顶部间距 */
+    font-weight: 500;
+    font-size: 0.9rem; /* 缩小按钮字体 */
+}
+
+.print-btn:hover {
+    background: #218838;
+}
+
+/* 页脚：紧凑显示 */
+footer {
+    text-align: center;
+    margin-top: 20px; /* 减小顶部间距 */
+    padding-top: 10px; /* 减小顶部内边距 */
+    border-top: 1px solid #eaeaea;
+    color: #7f8c8d;
+    font-size: 0.75rem; /* 缩小页脚字体 */
+}
+
+/* 状态标签样式优化（适配小字体） */
+.score-low {
+    background-color: #d4edda !important;
+    color: #155724;
+    font-weight: 500;
+    font-size: 0.8rem; /* 缩小状态文本字体 */
+}
+
+.score-moderate {
+    background-color: #fff3cd !important;
+    color: #856404;
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+.score-high {
+    background-color: #f8d7da !important;
+    color: #721c24;
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+/* 移动端专属优化（屏幕宽度≤768px） */
+@media (max-width: 768px) {
+    /* 进一步减小容器内边距 */
+    .container {
+        padding: 15px 10px;
+    }
+
+    /* 题目选项强制垂直排列，避免横向拥挤 */
+    .options {
+        flex-direction: column;
+        gap: 6px; /* 更小的选项间距 */
+    }
+
+    .option {
+        width: 100%; /* 选项占满宽度，点击区域更大 */
+        min-width: auto;
+    }
+
+    /* 得分卡片强制1列，避免横向挤压 */
+    .score-summary {
+        grid-template-columns: 1fr 1fr; /* 2列布局，更紧凑（比1列更省空间） */
+    }
+
+    /* 进一步缩小关键字体 */
+    h1 {
+        font-size: 1.4rem;
+    }
+
+    .results-header {
+        font-size: 1.2rem;
+    }
+
+    /* 按钮padding进一步减小，避免占满屏幕高度 */
+    .submit-btn {
+        padding: 10px;
+        font-size: 0.95rem;
+    }
+
+    .print-btn {
+        padding: 7px 12px;
+        font-size: 0.85rem;
+    }
+
+    /* 因子详情标题更小，文本更紧凑 */
+    .factor-explanation h3 {
+        font-size: 0.95rem;
+    }
+
+    .factor-explanation p {
+        font-size: 0.8rem;
+        line-height: 1.4;
+    }
+}
+
+/* 小屏手机专属优化（屏幕宽度≤375px，如iPhone SE） */
+@media (max-width: 375px) {
+    /* 得分卡片1列布局，避免文字溢出 */
+    .score-summary {
+        grid-template-columns: 1fr;
+    }
+
+    /* 进一步缩小标题字体 */
+    h1 {
+        font-size: 1.3rem;
+    }
+
+    .instructions h2 {
+        font-size: 1.1rem;
+    }
+
+    /* 选项内边距最小化 */
+    .option label {
+        padding: 7px 8px;
+        font-size: 0.8rem;
+    }
+}
